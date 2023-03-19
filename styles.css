@@ -1,0 +1,128 @@
+/*You can add styles to format your tooltip here*/
+#background{
+    background-color: black;
+}
+
+.center_plot {
+    margin: auto;
+    text-align: center;
+    color: rgb(0, 255, 115);
+}
+
+.head .bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url('earthquake.jpeg') center center;
+    opacity: .6;
+    width: 100%;
+    height: 300px;
+}
+
+.section {
+    color: rgb(0, 255, 115);
+    text-align: center;
+    font-family: fantasy;
+    font-weight: bold;
+    margin-top: 100px;
+    margin-bottom: 2px;
+    height: 184px;
+}
+
+#box {
+    padding:8px;
+    margin-bottom: 10px;
+    box-shadow: 0 1em 1em -1em rgba(0, 255, 115, .75);
+}
+
+.intro {
+    color: rgb(0, 255, 115);
+}
+
+.introtext { 
+    margin: auto;
+    text-align: center;
+    width: 60%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size:22px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.text{
+    text-align: center;
+    color: rgb(0, 255, 115);
+    font-family: fantasy;
+    font-size: larger;
+}
+
+.question{
+    text-align: center;
+    color: rgb(0, 255, 115);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+
+.replay {
+    color: rgb(0, 255, 115);
+    text-align: center;
+    font-family: "Chalkduster";
+    margin-top: -100px;
+    margin-bottom: 30px;
+}
+
+#radio_ {
+    text-align: center;
+}
+
+#tables {
+    text-align: center;
+    color: rgb(0, 255, 115);
+    width: 60%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.selected {
+    fill: #00CCCC;
+    opacity: 1;
+    stroke: #CCFF00;
+    stroke-width: 1px;
+}
+
+.ask {
+    color: rgb(0, 255, 115);
+    text-align: center;
+    font-family: "Chalkduster";
+}
+
+div.tooltip{
+    position: relative;
+    text-align: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 2px;
+    color: #FD0E35;
+    background: #8BA8B7;
+    pointer-events: none;
+}
+
+.explain {
+    width: 80%;
+    margin: auto;
+}
+
+.conclusion {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size:19px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}

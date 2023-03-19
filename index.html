@@ -1,0 +1,277 @@
+
+<html>  
+<head>  
+<script type="text/javascript" src="app.js">
+    </script>  
+<link rel="stylesheet" href="styles.css">
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" 
+        rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" 
+        crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body onload=finalProject() id = "background"> 
+
+
+<div class="head" id="box">
+    <div class="bg"></div>
+    <div class="section">
+        <h1>Analyzing the Huge Earthquakes around the World</h1>
+        <p>Xiaoyue Wang</p>
+        <p>Halicioğlu Data Science Institute and Department of Mathematics @ UCSD</p>
+    </div>
+</div>
+<div class="intro" id="box">
+    <p class="introtext">Earthquakes, one of the most catastrophic natural disasters known to 
+        humankind, are happending frequently around the world. Also, earthquakes are 
+        geological events that can strike with little warning, causing widespread 
+        destruction and loss of life. Understanding the trends and potential locations of 
+        earthquakes and their effects on the planet is crucial for us, scientists, 
+        and policymakers to develop effective strategies for mitigating their 
+        impact. While small earthquakes happening every day around the world, we
+        focus on large scale earthquakes that may cause disasters to human and our
+        environments. In the following questions and visulizations about the 782 huge earthquakes worldwise,
+        which starting from Januarty 1st 2001 to January 1st 2023, </p>
+</div>
+<p class="question">Question 1: Where were the huge earthquakes happended globally? </p>
+<div id="geo_plot2" class="center_plot"></div>
+<div class="replay">
+    <button type="button" class="btn btn-secondary" id="replay">Click to See the Animation Again</button>
+</div>
+<div class="text" id="box">
+    <p>Information about This Visualization</p>
+    <table class="table table-stripe" id="tables">
+        <thead>
+            <tr>
+              <th>Color of Scheme</th>
+              <th>Single image (color) used</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Marks</th>
+              <td>The GeoMap for the world and the points</td>
+            </tr>
+            <tr>
+              <th>Channels</th>
+              <td>The position channel informs the location that earthquake happended on the planet.<br>
+                The size channel (the size of warning sign) represents the magnitude of the earthquakes</td>
+            </tr>
+          </tbody>
+    </table>
+    <p class="explain">
+    We display the magnitude of the earthquakes and their locations following the year sequence. <br>
+    We can roughly recognize the earthquake bands by the frequency and intensity of earthquakes in different regions.
+    The majority of earthquakes were happended along the costal areas of the continents.
+    </p>
+</div>
+
+<p class="question">Question 2: What trends of magnitude and depth are those the huge earthquakes have? </p>
+<div class="ask">
+    <p>Select to See Different Statistics for Earthquakes</p>
+</div>
+<div id="radio_">
+    <input class="form-check-input" type="radio" id="magnitude" name="region" value="magnitude" checked="checked">
+    <label class="text" for="Magnitude">Magnitude</label>
+    <input class="form-check-input" type="radio" id="depth" name="region" value="depth">
+    <label class="text" for="Depth">Depth</label>
+</div>
+<div id="geo_plot" class="center_plot"></div>
+<div class="text" id="box">
+    <p>Information about This Visualization</p>
+    <table class="table table-stripe" id="tables">
+        <thead>
+            <tr>
+              <th>Color of Scheme</th>
+              <th>Single color used for each values(magnitude and depth)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Marks</th>
+              <td>The GeoMap for the world and the points</td>
+            </tr>
+            <tr>
+              <th>Channels</th>
+              <td>The position channel informs the location that earthquake happended on the planet.<br>
+                The size channel represents the magnitude (and depth) of the earthquakes</td>
+            </tr>
+          </tbody>
+    </table>
+    <p class="explain">
+    By clicking magnitude and depth buttons, we can visualize scales of magnitude 
+    and depth at each earthquake locations.<br>
+    For those earthquakes which have larger magnitude, they are more likely to have 
+    larger depth. And the depth of earthquakes that occur in coastal regions 
+    is deeper than those that occur inland.
+    </p>
+</div>
+
+<p class="question">Question 3: Is there any relation between the significance 
+    of earthquakes and the maximum estimated instrumental intensity can get?</p>
+<div class="ask">
+    <p>Try the Brushing for Selecting Points</p>
+</div>
+<div id="scatter_plot" class="center_plot"></div>
+<div class="text" id="box">
+    <p>Information about This Visualization</p>
+    <table class="table table-stripe" id="tables">
+        <thead>
+            <tr>
+              <th>Color of Scheme</th>
+              <th>Single color used for each individual earthquake event</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Marks</th>
+              <td>The points for each earthquakes</td>
+            </tr>
+            <tr>
+              <th>Channels</th>
+              <td>The X position channel represents the significance of the eathquake.<br>
+                The Y position channel represents the maximum estimated instrumental intensity detected.</td>
+            </tr>
+          </tbody>
+    </table>
+    <p class="explain">
+    By brushing the areas in the plot, we can select earthquakes in our selected area.<br>
+    From the scatter plot, it is clear that there are some positive correlations between significance
+    and maximum estimated instrumental intensity of the earthquakes.
+    For those earthquakes which have larger significance about the impact of 
+    earthquakes on human and planet,they have larger estimated intensity by equipments.
+    This demonstrating that when the instrument detected large intensity on a earthquake,
+    people and government should take more actions to prevent further following damages of the earthquakes. 
+    </p>
+</div>
+
+<p class="question">Question 4: What is the distribution of average earthquakes over years?</p>
+<div id="bar_plot" class="center_plot"></div>
+<div class="text" id="box">
+    <p>Information about This Visualization</p>
+    <table class="table table-stripe" id="tables">
+        <thead>
+            <tr>
+              <th>Color of Scheme</th>
+              <th>Single color used for each year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Marks</th>
+              <td>The bar for the average magnitude of eathquakes for each year</td>
+            </tr>
+            <tr>
+              <th>Channels</th>
+              <td>The X position channel represents the year.<br>
+                The Y position channel represents the average magnitude of large earthquakes for that year.</td>
+            </tr>
+          </tbody>
+    </table>
+    <p class="explain">
+    From the bar plot, it can be found out that the year 2009, 2012, and 2021 have
+    larger scale earthquakes on average than all other years. While the earthquakes
+    are such an unpredicting activities causing by collisions under the ground, we
+    may notice that following the years which have relatively lower average magnitude of 
+    earthquake, there will be larger average magnitude of earthquakes in the next few years.
+    This gives us hint that we need to cautious about the year which the magnitude of earthquakes
+    that happended in the previous years are not super high. 
+    </p>
+</div>
+
+<p class="question">Question 5: What is the distribution of the total number of earthquakes for each alert type over years?</p>
+<div id="stackbar_plot" class="center_plot"></div>
+<div class="text" id="box">
+    <p>Information about This Visualization</p>
+    <table class="table table-stripe" id="tables">
+        <thead>
+            <tr>
+              <th>Color of Scheme</th>
+              <th>The colors are accosiated with their alert type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Marks</th>
+              <td>The bar for the number of eathquakes for each year</td>
+            </tr>
+            <tr>
+              <th>Channels</th>
+              <td>The X position channel represents the year.<br>
+                The Y position channel represents the number of large earthquakes for that year.<br>
+                The color channel represents different kinds of alerts associated with earthquakes</td>
+            </tr>
+          </tbody>
+    </table>
+    <p class="explain">
+    From the stacked bar plot, it is clear that before 2012, the alert system of large
+    earthquakes is not developed yet, since only one very large earthquake was alerted.
+    But with the aadvancement of earthquake monitoring equipments, people are alerted
+    with different kinds of earthquakes. Starting from 2013, we can see that most of
+    the alerts for earthquakes are green, demonstrating that for many large earthquakes,
+    the impact to people may not be so large. Associated with the location of earthquakes
+    in previous plots, it can be infered that since many earthquakes happened under the
+    sea where no one lives there or in around places where only few people live, although
+    many earthquakes happended, only some of them will be red alerted to human. 
+    </p>
+</div>
+
+<p class="question">Question 6: Is there any difference of average magnitudes between tsunami and non-tsunami earthquakes? </p>
+<div id="box_plot" class="center_plot"></div>
+<div class="text" id="box">
+    <p>Information about This Visualization</p>
+    <table class="table table-stripe" id="tables">
+        <thead>
+            <tr>
+              <th>Color of Scheme</th>
+              <th>The color for box of 25% - 75% part is blue, and red for 50% line</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Marks</th>
+              <td>The boxes that represent the 25th and 75th quartilesof magnitude values.</td>
+            </tr>
+            <tr>
+              <th>Channels</th>
+              <td>The X position channel represents whether the Tsunami is triggered or not.<br>
+                The Y position channel represents the magnitude of large earthquakes.<br>
+            </td>
+            </tr>
+          </tbody>
+    </table>
+    <p class="explain">
+    From the box plot, we found out that 50% of earthquakes for both Tsunami tiggered or not
+    have magnitude of 6 and 75% of earthquakes are under magnitude of 7. It is not
+    clear that there is a strong relationship between the happening of tsunima and 
+    the magnitude of the earthquakes. This also demonstrated
+    that the cause of Tsunami may not only depend on the magnitude of earthquake, although
+    we sometimes think the larger earthquakes are more like to trigger tsunami. 
+    The predictions of tsunami also needs the geographic locations for the earthquakes
+    for people and government. 
+    </p>
+</div>
+
+<p class="question">Conclusion:</p>
+<div class="text">
+    <p class="conclusion">By the explorations on huge earthquakes data, we can find
+        the earthquake bands on the map, and find out that more earthquakes were
+        happening along the costal areas. By tracking earthquake frequency, magnitude, and location, scientists 
+        can better understand the patterns of seismic activity and develop models for 
+        predicting future earthquakes.<br>
+        <br>
+        However, it's important to note that the nature of earthquakes is still
+        unpredictable and there will always be some level of uncertainty in 
+        earthquake forecasting. Despite advances in technology and seismic monitoring, 
+        it's impossible to predict exactly when and where an earthquake will occur or how severe it will be.<br>
+        <br>
+        Therefore, it's important for individuals and communities to be 
+        prepared for earthquakes by taking steps such as securing buildings and 
+        having emergency plans in place.
+
+    </p>
+</div>
+
+</body>  
+</html>  
