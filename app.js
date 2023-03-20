@@ -136,6 +136,7 @@ var barPlot=function(filePath){
                 .attr('height', function(d) { return height - padding - yScale(d.avg_magnitude)})
                 .attr('width', bar)
                 .attr('fill', textcolor);
+        // Axis and legend
         const xAxis = d3.axisBottom().scale(xScale);
         const yAxis = d3.axisLeft().scale(yScale);
         svg.append("g")
@@ -291,6 +292,7 @@ var stackedbarPlot=function(filePath){
 					.style("stroke", "none")
 					.style("opacity", 0.9)
 				});	
+        // Axis and legend
         const xAxis = d3.axisBottom().scale(xScale);
         const yAxis = d3.axisLeft().scale(yScale);
         svg.append("g")
@@ -751,14 +753,5 @@ var boxPlot=function(filePath){
                 .attr("x", -height / 2 + 80)
                 .text("The Magnitude")
                 .attr("fill", textcolor);
-        // Legend
-        // svg.append("g")
-        //     .selectAll("lines")
-        //     .append("line")
-        //     .attr("x", width - padding * 20)
-        //     .attr("y", 10 * padding + 60)
-        //     .attr("stroke", "red")
-        //     .attr("stroke-width", "2px")
-        //     .style("width", 100)
     });
 }
